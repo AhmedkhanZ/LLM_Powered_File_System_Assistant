@@ -1,0 +1,142 @@
+# LLM-Powered File System Assistant
+
+An LLM-powered file assistant built with Python and OpenRouter that can read, list, search, and create files using tool calling. The assistant interprets natural-language requests, selects appropriate tools, executes them, and uses their results to respond to the user.
+
+## Features
+
+- **Read Files:** Extract text and metadata from TXT, PDF, and DOCX files.
+- **List Files:** List files in a directory with optional extension filtering.
+- **Write Files:** Create new text files and automatically create parent directories.
+- **Search Files:** Search file contents using case-insensitive keyword matching and return matching context.
+- **LLM Integration:** Use OpenRouter with an OpenAI-compatible Python SDK.
+- **Tool Calling:** Allow the LLM to select and invoke tools based on user requests.
+- **Argument Validation:** Validate tool names and arguments before execution.
+- **Environment Configuration:** Load API credentials from a `.env` file.
+- **Error Handling:** Return structured error information for file-operation failures.
+- **Basic Path Protection:** Restrict file operations to the project directory.
+
+## Tech Stack
+
+- Python
+- OpenRouter API
+- OpenAI Python SDK
+- Pydantic
+- pypdf
+- python-docx
+- python-dotenv
+- Requests
+
+## Project Structure
+
+```text
+LLM_Powered_File_System_Assistant_Project/
+├── main.py
+├── requirements.txt
+├── .env
+├── .gitignore
+├── Rhea_resume.pdf
+└── output/
+    └── Rhea_resume_summary.txt
+```
+
+## Prerequisites
+
+- Python 3.10 or later recommended
+- Visual Studio Code
+- An OpenRouter account and API key
+- An internet connection for LLM requests
+
+## Installation
+
+### 1. Clone or open the project
+
+Open the project folder in VS Code and open its integrated terminal.
+
+
+### 2. Install dependencies
+
+
+python -m pip install -r requirements.txt
+
+
+### 4. Configure the API key
+
+Create a `.env` file in the project root:
+
+OPENROUTER_API_KEY=your_actual_openrouter_api_key
+
+### 5. Add a sample document
+
+Place a PDF, TXT, or DOCX file in the project directory. For example:
+
+Rhea_resume.pdf
+
+The filename must match the one referenced in the application's query.
+
+## Running the Application
+
+Run the following command from the project root:
+
+python main.py
+
+
+The application sends a natural-language request to the configured LLM. The model can request tools to read the PDF and create a summary file.
+
+The default example asks the assistant to summarize `Rhea_resume.pdf` and save the result to:
+
+output/Rhea_resume_summary.txt
+
+
+Ensure that the source PDF exists and contains extractable text. Scanned documents may require OCR.
+
+## Available Tools
+
+| Tool | Description |
+|---|---|
+| `read_file` | Reads TXT, PDF, or DOCX content and returns metadata. |
+| `list_files` | Lists files in a directory, optionally filtered by extension. |
+| `write_file` | Creates a new text file without overwriting an existing file. |
+| `search_in_file` | Finds case-insensitive keyword matches and surrounding context. |
+
+The model receives tool schemas describing the available operations and their arguments. When it requests a tool call, the application validates the arguments, executes the corresponding Python function, and sends the result back to the model.
+
+## Example Requests
+
+The assistant can be asked to:
+
+- Read `Rhea_resume.pdf` and summarize its key information.
+- List all PDF files in the project directory.
+- Search a document for the keyword `Python`.
+- Create a text file containing a summary of a document.
+
+The exact tool calls depend on the model's interpretation of the request.
+
+## Configuration
+
+The default model is:
+
+MODEL_NAME = "openai/gpt-4o-mini"
+
+
+The OpenRouter client uses the OpenAI-compatible API endpoint:
+
+
+client = OpenAI(
+    base_url="https://openrouter.ai/api/v1",
+    api_key=OPENROUTER_API_KEY
+)
+
+
+The model must be available through OpenRouter, and the account must have the necessary access or credits.
+
+## Error Handling and Security
+
+- Missing API configuration raises an error during startup.
+- Unsupported file extensions return an error.
+- Invalid tool arguments are rejected before execution.
+- File-operation failures are returned as structured results.
+- Basic path validation prevents ordinary paths from escaping the project directory.
+- Existing files are not overwritten by the `write_file` tool in the supplied implementation.
+
+**Security considerations:** These controls are suitable as basic safeguards for a learning project, not as a complete production security boundary. For production use, consider stricter file permissions, symlink-aware path validation, file-size limits, prompt-injection defenses, restricted write destinations, API timeouts, logging, and automated tests.
+

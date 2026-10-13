@@ -1,0 +1,30 @@
+**Rhea Rajmanna**  
+Contact: 571-342-1416 | rhearajmanna@vt.edu | www.linkedin.com/in/rhea-rajmanna  
+
+**Education**  
+- Virginia Polytechnic Institute and State University, General Engineering w/ Interest in Computer Science (Aug. 2024 – Present, Expected May 2027)  
+- Chantilly High School, Advanced Diploma; GPA (Weighted): 4.46/4.00 (Aug. 2020 – June 2024)  
+
+**Relevant Coursework**  
+- Current: Software Design, Data Structures, Discrete Mathematics, Multivariable Calculus, Linear Algebra, Foundations of Engineering, Technical Writing  
+- Past: AP BC Calculus (5), AP AB Calculus (5), AP Research (5), AP Computer Science A (4), AP Computer Science Principles (5)  
+
+**Technical Skills**  
+- Languages: Java, Python, SQL, JavaScript, HTML/CSS  
+- Developer Tools: VS Code, PyCharm, IntelliJ, Eclipse  
+- Libraries: Pandas, NumPy, Matplotlib  
+
+**Work/Research Experience**  
+1. **Tim Duong Research Laboratory, Albert Einstein College of Medicine** (June 2024 – Present)  
+   - Student Researcher: Analyzing COVID-era blood pressure trends using SQL and developing data visualizations.  
+2. **Virginia Tech Transportation Institute** (March 2025 - Present)  
+   - Undergraduate Research Assistant: Analyzing driver video for drowsiness assessment using JDS and PERCLOS metrics.  
+3. **Aspiring Scientists Summer Internship Program (ASSIP)** (June 2023 – Jan. 2024)  
+   - Developed a Python data fetching algorithm and researched energy-efficient HVAC systems.  
+
+**Projects**  
+- **NutriCampus**: A React.js platform for personalized meal recommendations.  
+- **Optimism’s Effect on Ethereum Model**: Analyzed Ethereum transaction data; published abstract and received the 2023 Conrad Innovator Award.  
+
+**Awards and Honors**  
+- AP Capstone Diploma, National Merit Finalist, AP Scholar With Distinction.
